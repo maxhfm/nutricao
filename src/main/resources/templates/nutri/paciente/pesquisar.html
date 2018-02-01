@@ -25,15 +25,14 @@
 				<th>Nome</th>
 				<th>Telefone</th>
 				<th>Data Nascimento</th>
-				<th>Cadastrar Consulta</th>
-				<th>Opcoes</th>
+				
 			</tr>
 		
 			<tr th:each="p : ${pacientes}">
 				<td th:text="${p.id}"></td>
 				<td th:text="${p.nome}"></td>
 				<td th:text="${p.telefone1}"></td>
-				<td th:text="${#temporals.format(t.dataNascimento, 'dd/MM/yyyy')}"></td>
+				<td th:text="${#temporals.format(p.dataNascimento, 'dd/MM/yyyy')}"></td>
 				<td>
 					<a th:href="@{/nutri/consulta/cadastro?id=__${p.id}__}">
 					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>

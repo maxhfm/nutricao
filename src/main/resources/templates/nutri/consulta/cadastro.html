@@ -16,14 +16,16 @@
 <body>
 
 	<div class="container">
-		<form th:action="@{/nutri/paciente/cadastro}" th:object="${paciente}" method="POST">
+		<form th:action="@{/nutri/consulta/cadastro}" th:object="${consulta}" method="POST">
 		<h1>Cadastro de Paciente</h1>
 			<div class="form-group row">
 				<div class="col-sm-6">
 					<label class="col-form-label " for="nome">Nome</label>
 				</div>
+				
+				
 				<div class="col-sm-6">
-					<label class="col-form-label" for="dataNascimento">Data Nascimento</label>
+					<label class="col-form-label" for="dataNascimento">Data da Consulta</label>
 				</div>
 			</div>
 
@@ -34,7 +36,7 @@
 				</div>
 				<div class="col-sm-6">
 					<input class="form-control" type="text" placeholder="AAAA-MM-DD"
-						id="dataNascimento" th:field="*{dataNascimento}"/>
+						id="dataNascimento" th:field="*{dataConsulta}"/>
 				</div>
 			</div>
 

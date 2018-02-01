@@ -7,9 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
-import com.nutricao.sistemaNutricional.dados.PacienteDTO;
 import com.nutricao.sistemaNutricional.dados.PacientePersistencia;
 import com.nutricao.sistemaNutricional.model.Consulta;
 import com.nutricao.sistemaNutricional.model.Paciente;
@@ -39,11 +36,7 @@ public class PacienteController {
 	
 	@GetMapping("/nutri/paciente/pesquisar")
 	public String consultaPaciente(Paciente paciente, BindingResult errors, Model model) throws SQLException {
-		PacienteDTO pacienteDTO = new PacienteDTO();
 		model.addAttribute("pacientes", pacientes.findAll());
-		
-		
-		
 		return "/nutri/paciente/pesquisar";
 	}
 
