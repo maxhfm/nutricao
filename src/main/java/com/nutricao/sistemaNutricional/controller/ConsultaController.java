@@ -37,7 +37,7 @@ public class ConsultaController {
 	
 	@GetMapping("/nutri/consulta/pesquisar")
 	public String consultaConsulta(Consulta consulta, BindingResult errors, Model model) throws SQLException {
-		model.addAttribute("consultas", consultasPersiste.findAll());
+		model.addAttribute("consultas", paciente.consultaPaciente());
 		return "/nutri/consulta/pesquisar";
 	}
 
