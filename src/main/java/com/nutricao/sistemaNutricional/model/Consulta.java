@@ -23,7 +23,6 @@ public class Consulta {
 	private LocalDate dataConsulta;
 	
 	@ManyToOne
-	@JoinColumn(name="paciente", referencedColumnName="id")
 	private Paciente paciente;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
