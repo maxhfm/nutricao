@@ -6,12 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+
 public class Consulta {
 
 	@Id
@@ -20,12 +21,23 @@ public class Consulta {
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataConsulta;
-	@NotNull(message = "Campo obrigatório")
-	@NotEmpty(message = "O campo não pode estar vazia")
-	private int paciente;
-
+	
+	@ManyToOne
+	@JoinColumn(name="paciente", referencedColumnName="id")
+	private Paciente paciente;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private LocalDate proximaConsulta;
 	
 		
+	public LocalDate getProximaConsulta() {
+		return proximaConsulta;
+	}
+
+	public void setProximaConsulta(LocalDate proximaConsulta) {
+		this.proximaConsulta = proximaConsulta;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -34,14 +46,7 @@ public class Consulta {
 		this.id = id;
 	}
 
-	public int getPaciente() {
-		return paciente;
-	}
-
-	public void setPaciente(int paciente) {
-		this.paciente = paciente;
-	}
-
+	
 	public Consulta() {
 		super();
 	}
@@ -54,12 +59,27 @@ public class Consulta {
 		this.dataConsulta = dataConsulta;
 	}
 
-	public Consulta(Long id, LocalDate dataConsulta, int paciente) {
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public Consulta(Long id, LocalDate dataConsulta, Paciente paciente, LocalDate proximaConsulta) {
 		super();
 		this.id = id;
 		this.dataConsulta = dataConsulta;
 		this.paciente = paciente;
+		this.proximaConsulta = proximaConsulta;
+		
 	}
+
+	public LocalDate adiciona30diasConsulta(LocalDate data) {
+		return data.plusDays(30);
+	}
+
 	
 	
 	

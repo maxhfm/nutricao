@@ -1,12 +1,14 @@
 package com.nutricao.sistemaNutricional.controller;
 
 import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import com.nutricao.sistemaNutricional.dados.PacientePersistencia;
 import com.nutricao.sistemaNutricional.model.Consulta;
 import com.nutricao.sistemaNutricional.model.Paciente;
@@ -20,11 +22,15 @@ public class PacienteController {
 	@Autowired
 	private PacientePersistencia pacientes;
 	
+	
 	@GetMapping("/nutri/paciente/cadastro")
 	public String cadastroPaciente(Model model, Paciente paciente, Consulta consulta) {
 		model.addAttribute("paciente", paciente);
 		model.addAttribute("consulta", consulta);
 		
+		for (Paciente p : pacientes.findAll()) {
+			System.out.println(p.getNome());
+		}
 		return "/nutri/paciente/cadastro";
 	}
 	

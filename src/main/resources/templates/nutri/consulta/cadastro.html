@@ -11,39 +11,31 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div th:include="menu/menu :: menu"></div>
+
 </head>
 <body>
-
+<div th:include="menu/menu :: menu"></div>
 	<div class="container">
 		<form th:action="@{/nutri/consulta/cadastro}" th:object="${consulta}" method="POST">
-		<h1>Cadastro de Paciente</h1>
-			<div class="form-group row">
-				<div class="col-sm-6">
-					<label class="col-form-label " for="nome">Nome</label>
-				</div>
-				
-				
-				<div class="col-sm-6">
-					<label class="col-form-label" for="dataNascimento">Data da Consulta</label>
-				</div>
+		<h1>Cadastro de Consulta</h1>
+		<br>
+			
+			<div class="form-group">
+				<label class="form-label">Data da Consulta</label>
 			</div>
-
-			<div class="form-group row">
-				<div class="col-sm-6">
-					<input class="form-control" type="text" placeholder="Nome"
-						id="nome" th:field="*{nome}"/>
-				</div>
-				<div class="col-sm-6">
-					<input class="form-control" type="text" placeholder="AAAA-MM-DD"
-						id="dataNascimento" th:field="*{dataConsulta}"/>
-				</div>
+			<div>
+					<input class="form-control" type="text" placeholder="dd/mm/aaaa" id="dataConsulta" th:field="*{dataConsulta}"/>
 			</div>
-
-			
-			
-			
-			
+			<br>
+			<div class="form-group">
+					<label class="col-form-label " for="nome">Nome do Paciente</label>
+			</div>
+			<div class="form-group">
+					<select class="form-control" th:field="*{paciente}">
+						<option th:each="p : ${pacientes}" th:value="${p.id}" th:text="${p.nome}" th:id="${p.id}" selected="selected"></option>
+					</select>
+			</div>
+			<br>
 			<div class="form-group row">
 				<div class="col-sm-6">
 					<input class="btn btn-primary" type="submit"/>
