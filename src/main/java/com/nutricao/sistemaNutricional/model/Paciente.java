@@ -2,10 +2,12 @@ package com.nutricao.sistemaNutricional.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -23,8 +25,10 @@ public class Paciente {
 	private String nome;
 	private String cpf;
 	
+	@Column(name="data_nascimento")
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDate dataNascimento;
+	
 	private String sexo;
 	private String telefone1;
 	private String telefone2;
@@ -120,6 +124,16 @@ public class Paciente {
 		this.email = email;
 		this.objetivo = objetivo;
 	}
+
+	public Paciente(String nome, String telefone1) {
+		super();
+		this.nome = nome;
+		this.telefone1 = telefone1;
+	}
+
+	
+	
+	
 
 	
 	

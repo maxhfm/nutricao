@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nutricao.sistemaNutricional.dados.ConsultaPersistencia;
+import com.nutricao.sistemaNutricional.dados.ConsultaQuery;
 import com.nutricao.sistemaNutricional.dados.PacientePersistencia;
 import com.nutricao.sistemaNutricional.model.Consulta;
 
@@ -30,14 +31,17 @@ public class ConsultaController {
 	
 	@PostMapping("/nutri/consulta/cadastro")
 	public String cadastradoConsulta(Model model, Consulta consulta) throws SQLException {
-		consulta.setProximaConsulta(consulta.adiciona30diasConsulta(consulta.getDataConsulta()));
+		consulta.setProximaConsulta(consulta.adiciona45diasConsulta(consulta.getDataConsulta()));
 		consultasPersiste.save(consulta);
+		
 		return "redirect:/nutri/consulta/cadastro";
 	}
 	
 	@GetMapping("/nutri/consulta/pesquisar")
 	public String consultaConsulta(Consulta consulta, BindingResult errors, Model model) throws SQLException {
-		//model.addAttribute("consultas", paciente.retornaDataConsultas());
+		ConsultaQuery consultaQry = new ConsultaQuery();
+		model.addAttribute("consultas", consultaQry.proximasConsultas());
+			
 		return "/nutri/consulta/pesquisar";
 	}
 

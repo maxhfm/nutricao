@@ -2,7 +2,7 @@ package com.nutricao.sistemaNutricional.model;
 
 import java.time.LocalDate;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,12 +20,14 @@ public class Consulta {
 	private Long id;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name="data_consulta")
 	private LocalDate dataConsulta;
 	
 	@ManyToOne
 	private Paciente paciente;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name="proxima_consulta")
 	private LocalDate proximaConsulta;
 	
 		
@@ -66,7 +68,7 @@ public class Consulta {
 		this.paciente = paciente;
 	}
 
-	public Consulta(Long id, LocalDate dataConsulta, Paciente paciente, LocalDate proximaConsulta) {
+	public Consulta(Long id, Paciente paciente, LocalDate dataConsulta, LocalDate proximaConsulta) {
 		super();
 		this.id = id;
 		this.dataConsulta = dataConsulta;
@@ -75,8 +77,8 @@ public class Consulta {
 		
 	}
 
-	public LocalDate adiciona30diasConsulta(LocalDate data) {
-		return data.plusDays(30);
+	public LocalDate adiciona45diasConsulta(LocalDate data) {
+		return data.plusDays(45);
 	}
 
 	

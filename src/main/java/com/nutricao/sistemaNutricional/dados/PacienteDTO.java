@@ -11,30 +11,39 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+import com.nutricao.sistemaNutricional.converter.ConvertDateLocalDate;
 import com.nutricao.sistemaNutricional.model.Paciente;
 
 public class PacienteDTO {
 	
 	private Connection conection = null;
+	ConvertDateLocalDate convertData = new ConvertDateLocalDate();
 	
 	
 	
 	public PacienteDTO() {
 		conection = new Conexao().obertConexao();
 	}
-
-	public void salvar(Paciente paciente) throws SQLException {
-		PreparedStatement ps = conection.prepareStatement("insert into paciente (nome, dataNascimento, sexo, telefone1, telefone2, email, objetivo, cpf) values (?,?,?,?,?,?,?,?)");
-		ps.setString(1, paciente.getNome());
-		
-		ps.setString(3, paciente.getSexo());
-		ps.setString(4, paciente.getTelefone1());
-		ps.setString(5, paciente.getTelefone2());
-		ps.setString(6, paciente.getEmail());
-		ps.setString(7, paciente.getObjetivo());
-		ps.setString(8, paciente.getCpf());
-		ps.execute();
+	
+	public void editar(Paciente paciente) {
+		try {
+			PreparedStatement ps = conection.prepareStatement("update paciente set nome=?, cpf=?, data_nascimento=?, sexo=?, telefone1=?, telefone2=?, email=?, objetivo=? where id=?");
+			ps.setString(1, paciente.getNome());
+			ps.setString(2, paciente.getCpf());
+			ps.setDate(3, convertData.asDate(paciente.getDataNascimento()));
+			ps.setString(4, paciente.getSexo());
+			ps.setString(5, paciente.getTelefone1());
+			ps.setString(6, paciente.getTelefone2());
+			ps.setString(7, paciente.getEmail());
+			ps.setString(8, paciente.getObjetivo());
+			ps.setLong(9, paciente.getId());
+			ps.execute();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Paciente> consultaTodos() throws SQLException{
