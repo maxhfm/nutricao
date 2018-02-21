@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nutricao</title>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+	<div th:include="menu/menu :: menu"></div>
+	<div class=container>
+		<h1>Aniversário de Pacientes</h1>
+		<br>
+
+		<ul class="nav nav-tabs">
+			<li role="presentation"><a href="jan">Jan</a></li>
+			<li role="presentation"><a href="fev">Fev</a></li>
+			<li role="presentation"><a href="mar">Mar</a></li>
+			<li role="presentation"><a href="abr">Abr</a></li>
+			<li role="presentation"><a href="maio">Maio</a></li>
+			<li role="presentation"><a href="jun">Jun</a></li>
+			<li role="presentation"><a href="jul">Jul</a></li>
+			<li role="presentation"><a href="ago">Ago</a></li>
+			<li role="presentation"><a href="set">Set</a></li>
+			<li role="presentation"><a href="out">Out</a></li>
+			<li role="presentation"><a href="nov">Nov</a></li>
+			<li role="presentation"><a href="dez">Dez</a></li>
+		</ul>
+		<br>
+		<h3>Mês Janeiro</h3>
+		<br>
+		
+		<table class="table" >
+			<tr>
+				<th>Nome</th>
+				<th>Data Nascimento</th>
+				<th>Telefone</th>
+			</tr>
+			<tr th:each="p : ${pacientes}">
+				<td th:text="${p.nome}"></td>				
+				<td th:text="${#temporals.format(p.dataNascimento, 'dd/MM/yyyy')}"></td>
+				<td th:text="${p.telefone1}"></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

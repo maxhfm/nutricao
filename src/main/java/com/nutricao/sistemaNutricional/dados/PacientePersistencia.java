@@ -25,5 +25,43 @@ public interface PacientePersistencia extends CrudRepository <Paciente, Long>{
   
   Paciente findById(Long id);
   
+  @Query(value="select * from paciente p where month(data_nascimento)='01' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteJan();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='02' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteFev();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='03' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteMar();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='04' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteAbr();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='05' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteMaio();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='06' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteJun();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='07' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteJul();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='08' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteAgo();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='09' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteSet();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='10' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteOut();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='11' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteNov();
+  
+  @Query(value="select * from paciente p where month(data_nascimento)='12' order by data_nascimento desc", nativeQuery = true)
+  List<Paciente> aniversarianteDez();
+  
+  
+  
 
 }

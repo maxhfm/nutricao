@@ -11,10 +11,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div th:include="menu/menu :: menu"></div>
+
 </head>
 <body>
-
+<div th:include="menu/menu :: menu"></div>
 	<div class="container">
 		<form th:action="@{/nutri/paciente/cadastro}" th:object="${paciente}" method="POST">
 		<h1>Cadastro de Paciente</h1>
