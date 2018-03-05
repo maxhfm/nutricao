@@ -35,7 +35,7 @@ public class PacienteController {
 		for (Paciente p : pacientes.findAll()) {
 			System.out.println(p.getNome());
 		}
-		return "/nutri/paciente/cadastro";
+		return "nutri/paciente/cadastro";
 	}
 	
 	@PostMapping("/nutri/paciente/cadastro")
