@@ -34,6 +34,9 @@ public class Paciente {
 	private String telefone2;
 	private String email;
 	private String objetivo;
+	private String profissao;
+	private String cargaHoraria;
+	private String estadoCivil;
 
 	public String getNome() {
 		return nome;

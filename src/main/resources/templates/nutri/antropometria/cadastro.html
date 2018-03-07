@@ -43,171 +43,116 @@
 			<div class="row">
 			<div class="form-group">
 				<div class="col-sm-4">
-					<label class="col-form-label" for="pesoHabitual">Peso
-						Habitual</label>
+					<label class="col-form-label" for="pesoHabitual">Peso Habitual</label>
+					<input class="form-control" id="pesoHabitual" type="text" th:field="*{pesoHabitual}" />
 				</div>
 				<div class="col-sm-4">
 					<label class="col-form-label" for="pesoAtual">Peso Atual</label>
+					<input class="form-control" id="pesoAtual" type="text" th:field="*{pesoAtual}" />
 				</div>
 				<div class="col-sm-4">
 					<label class="col-form-label" for="estatura">Estatura</label>
+					<input class="form-control" id="estatura" type="text" th:field="*{estatura}" />
 				</div>
 			</div>
 			</div>
-			<div class="form-group row">
-				<div class="col-sm-4">
-					<input class="form-control" id="pesoHabitual" type="text"
-						th:field="*{pesoHabitual}" />
-				</div>
-				<div class="col-sm-4">
-					<input class="form-control" id="pesoAtual" type="text"
-						th:field="*{pesoAtual}" />
-				</div>
-				<div class="col-sm-4">
-					<input class="form-control" id="estatura" type="text"
-						th:field="*{estatura}" />
-				</div>
-			</div>
-
 			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-form-label" for="imc">IMC</label>
-					</div>
-					<div class="col-sm-6">
-						<label class="col-form-label" for="pesoIdeal">Peso Ideal</label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group">
-					<div class="col-sm-6">
 						<input class="form-control" type="text" id="resultado" />
 					</div>
 					<div class="col-sm-6">
+						<label class="col-form-label" for="pesoIdeal">Peso Ideal</label>
 						<input class="form-control" type="text"/>
 					</div>
 				</div>
 			</div>
 			<br>
 
-
 			<div class="box">
 				<h4>Medidas de Circunferências</h4>
-				<div class="form-group row">
+				<div class="row">
+				<div class="form-group">
 					<div class="col-sm-2">
 						<label class="col-form-label" for="braco">Braço</label>
+						<input class="form-control" id="braco" type="text" th:field="*{circunferenciaBraco}" />
 					</div>
 					<div class="col-sm-2">
-						<label class="col-form-label" for="bracoContraido">Braço
-							Contraído</label>
+						<label class="col-form-label" for="bracoContraido">Braço Contraído</label>
+						<input class="form-control" id="bracoContraido" type="text"	th:field="*{circunferenciaBracoContraido}" />
 					</div>
 					<div class="col-sm-2">
 						<label class="col-form-label" for="quadril">Quadril</label>
+						<input class="form-control" id="quadril" type="text" th:field="*{circunferenciaQuadril}" />
 					</div>
 				</div>
-				<div class="form-group row">
-					<div class="col-sm-2">
-						<input class="form-control" id="braco" type="text"
-							th:field="*{circunferenciaBraco}" />
-					</div>
-					<div class="col-sm-2">
-						<input class="form-control" id="bracoContraido" type="text"
-							th:field="*{circunferenciaBracoContraido}" />
-					</div>
-					<div class="col-sm-2">
-						<input class="form-control" id="quadril" type="text"
-							th:field="*{circunferenciaQuadril}" />
-					</div>
 				</div>
-				<div class="form-group row">
+				<div class="row">
+				<div class="form-group">
 					<div class="col-sm-2">
 						<label class="col-form-label" for="abdominal">Abdominal</label>
+						<input class="form-control" id="abdominal" type="text" th:field="*{circunferenciaAbnominal}" />
 					</div>
 					<div class="col-sm-2">
 						<label class="col-form-label" for="perna">Perna</label>
+						<input class="form-control" id="perna" type="text" th:field="*{circunferenciaPerna}" />
 					</div>
 					<div class="col-sm-2">
 						<label class="col-form-label" for="coxa">Coxa</label>
+						<input class="form-control" id="coxa" type="text" th:field="*{circunferenciaCoxa}" />
 					</div>
 				</div>
-				<div class="form-group row">
-					<div class="col-sm-2">
-						<input class="form-control" id="abdominal" type="text"
-							th:field="*{circunferenciaAbnominal}" />
-					</div>
-					<div class="col-sm-2">
-						<input class="form-control" id="perna" type="text"
-							th:field="*{circunferenciaPerna}" />
-					</div>
-					<div class="col-sm-2">
-						<input class="form-control" id="coxa" type="text"
-							th:field="*{circunferenciaCoxa}" />
-					</div>
 				</div>
-				<div class="form-group row">
+				<div class="row">
+				<div class="form-group">
 					<div class="col-sm-2">
 						<label class="col-form-label" for="cintura">Cintura</label>
-					</div>
-					<div class="col-sm-2">
-						<label class="col-form-label" for="peito">Peito</label>
-					</div>
-					<div class="col-sm-2">
-						<label class="col-form-label" for="panturrilha">Panturrilha</label>
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-sm-2">
 						<input class="form-control" id="cintura" type="text"
 							th:field="*{circunferenciaCintura}" />
 					</div>
 					<div class="col-sm-2">
+						<label class="col-form-label" for="peito">Peito</label>
 						<input class="form-control" id="peito" type="text"
 							th:field="*{circunferenciaPeito}" />
 					</div>
 					<div class="col-sm-2">
+						<label class="col-form-label" for="panturrilha">Panturrilha</label>
 						<input class="form-control" id="panturrilha" type="text"
 							th:field="*{circunferenciaPanturrilha}" />
 					</div>
 				</div>
+				</div>
 			</div>
 			<br>
 			<br>
-			<div class="form-group row">
+			<div class="row">
+			<div class="form-group">
 				<div class="col-sm-3">
 					<label class="col-form-label" for="porcentagemGordura">%
 						Gordura Corporal</label>
-				</div>
-				<div class="col-sm-3">
-					<label class="col-form-label" for="porcentagemMassaMagra">%
-						Massa Magra</label>
-				</div>
-				<div class="col-sm-3">
-					<label class="col-form-label" for="gorduraVisceral">%
-						Gordura Visceral</label>
-				</div>
-				<div class="col-sm-3">
-					<label class="col-form-label" for="idadeMetabolica">Idade
-						Metabólica</label>
-				</div>
-			</div>
-			<div class="form-group row">
-				<div class="col-sm-3">
 					<input class="form-control" id="porcentagemGordura" type="text"
 						th:field="*{porcentagemGordura}" />
 				</div>
 				<div class="col-sm-3">
+					<label class="col-form-label" for="porcentagemMassaMagra">%
+						Massa Magra</label>
 					<input class="form-control" id="porcentagemMassaMagra" type="text"
 						th:field="*{porcentagemMassaMagra}" />
 				</div>
 				<div class="col-sm-3">
+					<label class="col-form-label" for="gorduraVisceral">%
+						Gordura Visceral</label>
 					<input class="form-control" id="gorduraVisceral" type="text"
 						th:field="*{gorduraVisceral}" />
 				</div>
 				<div class="col-sm-3">
+					<label class="col-form-label" for="idadeMetabolica">Idade
+						Metabólica</label>
 					<input class="form-control" id="idadeMetabolica" type="text"
 						th:field="*{idadeMetabolica}" />
 				</div>
+			</div>
 			</div>
 
 			<br>

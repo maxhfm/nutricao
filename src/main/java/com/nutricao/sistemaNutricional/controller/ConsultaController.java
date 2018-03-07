@@ -26,7 +26,7 @@ public class ConsultaController {
 	public String cadastroConsulta(Model model, Consulta consulta) {
 		model.addAttribute("consulta", consulta);
 		model.addAttribute("pacientes", paciente.findAll());		
-		return "/nutri/consulta/cadastro";
+		return "nutri/consulta/cadastro";
 	}
 	
 	@PostMapping("/nutri/consulta/cadastro")
@@ -42,7 +42,7 @@ public class ConsultaController {
 		ConsultaQuery consultaQry = new ConsultaQuery();
 		model.addAttribute("consultas", consultaQry.proximasConsultas());
 			
-		return "/nutri/consulta/pesquisar";
+		return "nutri/consulta/pesquisar";
 	}
 
 }
